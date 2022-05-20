@@ -91,6 +91,7 @@ def train(rank, a, h, warm_start):
                             sampler=train_sampler,
                             batch_size=h.batch_size,
                             pin_memory=True,
+                            num_workers=2,
                             drop_last=True)
 
     if rank == 0:
