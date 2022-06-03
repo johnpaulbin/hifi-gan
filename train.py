@@ -119,7 +119,11 @@ def train(rank, a, h, warm_start):
         if h.num_gpus > 1:
             train_sampler.set_epoch(epoch)
 
-        for i, batch in enumerate(train_loader):
+        processedData = []
+        for batch in train_loader:
+            processedData.append(batch)
+            
+        for i, batch in enumerate(processedData):
             if rank == 0:
                 start_b = time.time()
             x, y, _, y_mel = batch
